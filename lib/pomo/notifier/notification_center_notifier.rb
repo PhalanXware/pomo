@@ -7,7 +7,7 @@ module Pomo
         title = 'Pomo'
 
         TerminalNotifier.notify message, :title => title, :subtitle => opts[:header], :sender => 'com.apple.Terminal'
-        system('say "beep"')
+        system("say '#{message}'")
       end
     end
 
