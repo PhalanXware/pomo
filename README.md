@@ -1,4 +1,6 @@
-# Pomo [![Build Status](https://travis-ci.org/visionmedia/pomo.png?branch=master)](https://travis-ci.org/visionmedia/pomo) [![Dependency Status](https://gemnasium.com/visionmedia/pomo.png)](https://gemnasium.com/visionmedia/pomo) [![Code Climate](https://codeclimate.com/github/visionmedia/pomo.png)](https://codeclimate.com/github/visionmedia/pomo)
+# Pomo [![Build Status](https://travis-ci.org/PhalanXware/pomo.svg?branch=master)](https://travis-ci.org/PhalanXware/pomo)
+
+_This is a forked repository from [attomos/pomo: Ruby Pomodoro app for the command-line (time / task management)](https://github.com/attomos/pomo)_
 
 Command-line application for the [Pomodoro](http://www.pomodorotechnique.com/)
 time management technique, with notification and tmux status bar support.
