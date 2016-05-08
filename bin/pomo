@@ -4,6 +4,8 @@
 require 'commander/import'
 require 'pomo'
 
+include Pomo::Util
+
 program :version, Pomo::VERSION
 
 program :description, "Pomodoro time management.
@@ -314,15 +316,19 @@ command :list do |c|
 
     config = Pomo::Configuration.load
     total = 0
+    max_length = print_size(
+      list.tasks.max do |task_a, task_b|
+        print_size(task_a.to_s) <=> print_size(task_b.to_s)
+      end.to_s
+    )
     list.tasks.each_with_index do |task, i|
       next if task.complete? && !options.all && !options.complete
       next if !task.complete? && options.complete
 
-      say ' %s %2d. %-50s : %d minutes' % [task.complete? ? '✓' : ' ', i, task.to_s, task.length]
+      say ' %s %2d. %s : %d minutes' % [task.complete? ? '[✓]' : '[ ]', i, pad_to_print_size(task.to_s, max_length), task.length]
       total += task.length
     end
     say ' ' * 60 + '%d minutes' % total
   end
 end
 alias_command :ls, :list
-

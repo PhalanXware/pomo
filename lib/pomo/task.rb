@@ -29,14 +29,26 @@ module Pomo
     attr_accessor :complete
 
     ##
+    # Task created time
+
+    attr_accessor :created_at
+
+    ##
+    # Task start time
+
+    attr_accessor :started_at
+
+    ##
     # Initialize with _name_ and _options_.
 
     def initialize(name = nil, options = {})
-      @name = name or raise '<task> required'
+      @name        = name or raise '<task> required'
       @description = options.delete :description
-      @length = options.fetch :length, 25
-      @running = false
-      @complete = false
+      @length      = options.fetch :length, 25
+      @running     = false
+      @complete    = false
+      @created_at  = Time.now
+      @started_at  = nil
     end
 
     ##
@@ -78,6 +90,7 @@ module Pomo
       progress = options[:progress]
 
       @running = true
+      @started_at = Time.now
       list.save unless list.nil?
 
       if progress

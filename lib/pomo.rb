@@ -1,3 +1,4 @@
+require 'pomo/util'
 require 'pomo/os'
 require 'pomo/configuration'
 require 'pomo/notifier'
