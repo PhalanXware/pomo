@@ -11,5 +11,7 @@ RSpec::Core::RakeTask.new(:spec)
 
 YARD::Rake::YardocTask.new(:doc)
 
+task :test => [:spec]
+
 desc 'Run tests, both RSpec and Cucumber'
-task :test => [:spec, :cucumber]
+task :full_test => [:spec, :cucumber]
